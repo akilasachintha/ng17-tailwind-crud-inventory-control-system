@@ -1,0 +1,21 @@
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-black">Product Category Details</h5>
+<form [formGroup]="categoryForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+  <div class="mb-5">
+    <label for="categoryName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Category Name</label>
+    <input type="text" id="categoryName" class="form-control" placeholder="Category Name" formControlName="categoryName">
+    @if (categoryForm.get('categoryName')?.hasError('required') && categoryForm.get('categoryName')?.touched) {
+    <div class="form-error">Category Name is required</div>
+    }
+  </div>
+  <div class="mb-5">
+    <label for="categoryDescription" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Description</label>
+    <input type="text" id="categoryDescription" class="form-control" placeholder="Description" formControlName="categoryDescription">
+    @if (categoryForm.get('categoryDescription')?.hasError('required') && categoryForm.get('categoryDescription')?.touched) {
+    <div class="form-error">Category Description is required</div>
+    }
+  </div>
+  <button type="submit"
+    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+  <button type="button" (click)="onClose()"
+    class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
+</form>
