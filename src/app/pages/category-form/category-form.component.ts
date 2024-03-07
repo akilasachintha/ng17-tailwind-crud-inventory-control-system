@@ -38,6 +38,7 @@ export class CategoryFormComponent implements OnChanges {
     private toastr: ToastrService
   ) {
     this.categoryForm = this.fb.group({
+      categoryId: [''],
       categoryName: new FormControl('', [Validators.required]),
       categoryDescription: new FormControl('', [Validators.required]),
     });
@@ -50,6 +51,7 @@ export class CategoryFormComponent implements OnChanges {
   ngOnChanges(): void {
     if (this.data) {
       this.categoryForm.patchValue({
+        categoryId: this.data.categoryId,
         categoryName: this.data.categoryName,
         categoryDescription: this.data.categoryDescription,
       });

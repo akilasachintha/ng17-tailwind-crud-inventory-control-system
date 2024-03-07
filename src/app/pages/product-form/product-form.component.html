@@ -2,7 +2,7 @@
 <form [formGroup]="productForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
   <div class="mb-5">
     <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Category</label>
-    <select id="categoryId" class="form-control" formControlName="category">
+    <select id="categoryId" class="form-control" formControlName="categoryId">
       <option value="">Select a Category</option>
       <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
     </select>

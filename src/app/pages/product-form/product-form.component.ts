@@ -32,7 +32,7 @@ export class ProductFormComponent {
     private toastr: ToastrService
   ) {
     this.productForm = this.fb.group({
-      category: [''],
+      categoryId: [''],
       productName: [''],
       productDescription: [''],
       productPrice: [''],
@@ -47,7 +47,7 @@ export class ProductFormComponent {
   ngOnChanges(): void {
     if (this.data) {
       this.productForm.patchValue({
-        category: this.data.category,
+        category: this.data.categoryName,
         categoryId: this.data.categoryId,
         productName: this.data.productName,
         productDescription: this.data.productDescription,
