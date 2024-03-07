@@ -30,6 +30,7 @@ export class CategoryComponent implements OnInit {
     this.categoryService.getAllCategory().subscribe({
       next: (response) => {
         if (response.data) {
+          console.log(response.data);
           this.categories = response.data;
         }
       },
@@ -42,6 +43,7 @@ export class CategoryComponent implements OnInit {
   }
 
   deleteCategory(id: string) {
+    console.log(id);
     this.categoryService.deleteCategory(id).subscribe({
       next: (response) => {
         this.toastr.success(response.message);

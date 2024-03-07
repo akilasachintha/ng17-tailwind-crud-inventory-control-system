@@ -8,22 +8,22 @@ import {IProduct} from "../../pages/shared/models/Product";
   providedIn: 'root'
 })
 export class ProductService {
-  apiurl = 'http://localhost:4000';
+  apiUrl = 'https://greatsparklyphone61.conveyor.cloud/api';
   constructor(private http: HttpClient) { }
 
   getAllProduct(): Observable<ApiResponse<IProduct[]>> {
-    return this.http.get<ApiResponse<IProduct[]>>(`${this.apiurl}/products`);
+    return this.http.get<ApiResponse<IProduct[]>>(`${this.apiUrl}/Product/get-all-product`);
   }
 
   createProduct(product: IProduct): Observable<any> {
-    return this.http.post(`${this.apiurl}/product`, product);
+    return this.http.post(`${this.apiUrl}/Product/add-product`, product);
   }
 
   updateProduct(id: string, product: IProduct): Observable<any> {
-    return this.http.put(`${this.apiurl}/product/${id}`, product);
+    return this.http.put(`${this.apiUrl}/product/${id}`, product);
   }
 
   deleteProduct(id: string): Observable<ApiResponse<any>>{
-    return this.http.delete<ApiResponse<any>>(`${this.apiurl}/product/${id}`);
+    return this.http.delete<ApiResponse<any>>(`${this.apiUrl}/product/${id}`);
   }
 }

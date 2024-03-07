@@ -1,12 +1,12 @@
 <h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-black">Product Category Details</h5>
 <form [formGroup]="productForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
   <div class="mb-5">
-    <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Category</label>
-    <select id="category" class="form-control" formControlName="category">
+    <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Category</label>
+    <select id="categoryId" class="form-control" formControlName="category">
       <option value="">Select a Category</option>
-      <option *ngFor="let category of categories" [value]="category.categoryName">{{ category.categoryName }}</option>
+      <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
     </select>
-    <div *ngIf="productForm.get('category')?.hasError('required') && productForm.get('category')?.touched" class="form-error">Category is required</div>
+    <div *ngIf="productForm.get('categoryId')?.hasError('required') && productForm.get('categoryId')?.touched" class="form-error">Category is required</div>
   </div>
   <div class="mb-5">
     <label for="productName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Category Name</label>

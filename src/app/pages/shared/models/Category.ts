@@ -1,10 +1,11 @@
 export interface ApiResponse<T> {
   message?: string;
+  status?: string;
   data: T;
 }
 
 export interface ICategory {
-  id?: string;
+  categoryId?: string;
   categoryName: string;
   categoryDescription: string;
 }

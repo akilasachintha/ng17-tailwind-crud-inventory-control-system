@@ -60,7 +60,7 @@ export class CategoryFormComponent implements OnChanges {
     if (this.categoryForm.valid) {
       if (this.data) {
         this.categoryService
-          .updateCategory(this.data.id as string, this.categoryForm.value)
+          .updateCategory(this.data.categoryId as string, this.categoryForm.value)
           .subscribe({
             next: (response: any) => {
               this.resetCategoryForm();
@@ -71,6 +71,7 @@ export class CategoryFormComponent implements OnChanges {
         this.categoryService.createCategory(this.categoryForm.value).subscribe({
           next: (response: any) => {
             this.resetCategoryForm();
+            console.log(response);
             this.toastr.success(response.message);
             this.onClose();
           },

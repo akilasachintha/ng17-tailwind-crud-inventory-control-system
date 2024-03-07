@@ -44,6 +44,19 @@ export class ProductFormComponent {
     this.getAllCategory();
   }
 
+  ngOnChanges(): void {
+    if (this.data) {
+      this.productForm.patchValue({
+        category: this.data.category,
+        categoryId: this.data.categoryId,
+        productName: this.data.productName,
+        productDescription: this.data.productDescription,
+        productPrice: this.data.productPrice,
+        productQuantity: this.data.productQuantity
+      });
+    }
+  }
+
   onClose() {
     this.onCloseModel.emit(false);
   }
@@ -58,23 +71,11 @@ export class ProductFormComponent {
     });
   }
 
-  ngOnChanges(): void {
-    if (this.data) {
-      this.productForm.patchValue({
-        category: this.data.category,
-        productName: this.data.productName,
-        productDescription: this.data.productDescription,
-        productPrice: this.data.productPrice,
-        productQuantity: this.data.productQuantity
-      });
-    }
-  }
-
   onSubmit() {
     if (this.productForm.valid) {
       if (this.data) {
         this.productService
-          .updateProduct(this.data.id as string, this.productForm.value)
+          .updateProduct(this.data.productId as string, this.productForm.value)
           .subscribe({
             next: (response) => {
               this.resetProductForm();
